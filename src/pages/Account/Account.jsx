@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import cl from './Account.module.css'
 
 
@@ -7,6 +7,8 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {GrayBonuses, GrayLoyalLevel, GrayOrders, GrayPhone} from "../../assets/icons";
 import {ButtonShowQR} from "../../components/buttonShowQR";
+import QRCode from "qrcode";
+import classNames from "classnames";
 
 export const Account = () => {
 
@@ -97,12 +99,26 @@ export const Account = () => {
 
     const profPic = UserProfilePhoto(user?.id);
 
+    ////////////
+    //Тут код, который связан с QR-кодом
+    const [idUser, setIdUser] = useState('12341234');
+    const [visibleQR, setVisibleQR] = useState(false)
+    const switchVisible = () => {setVisibleQR(!visibleQR)}
+    const canvasRef = useRef();
+    useEffect(() => {
+
+        QRCode.toCanvas(
+            canvasRef.current,
+            idUser,
+            (error) => error && console.error(error)
+        );
+    }, [idUser]);
+    ///////////
+
     return (
         <div className={cl.wrapperAccount}>
             <div className={cl.firstBlock}>
-                {/* <img src={photo}/> */}
                 {profPic}
-
                 <div className={cl.nameInfo}>
                     <span className={cl.nameUser}>{user?.first_name}</span>
                     <div className={cl.phoneId}>
@@ -110,9 +126,19 @@ export const Account = () => {
                     </div>
                 </div>
             </div>
-            <ButtonShowQR>
+
+            {/*Тут код, который связан с QR-кодом*/}
+
+            <ButtonShowQR onClick={switchVisible}>
                 Показать QR-код
             </ButtonShowQR>
+            <canvas ref={canvasRef} className={classNames({
+                [cl.visibleQrOn]: visibleQR,
+                [cl.visibleQrOff]: !visibleQR,
+            })}/>
+
+            {/*Тут код, который связан с QR-кодом*/}
+
             <div className={cl.detailInfo}>
                 <div className={cl.infoBlock}>
                     <GrayPhone/>

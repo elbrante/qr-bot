@@ -90,3 +90,10 @@
     border-radius: 50%;
 }
 
+.visibleQrOn {
+    display: block;
+}
+
+.visibleQrOff {
+    display: none;
+}
