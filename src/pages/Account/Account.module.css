@@ -1,0 +1,92 @@
+.wrapperAccount {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.firstBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.firstBlock img {
+    width: max-content;
+}
+
+.nameInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.nameUser {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.phoneId {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.phoneId img {
+    width: max-content;
+}
+
+.phoneId span {
+    font-size: 14px;
+    line-height: 16px;
+    color: #787878;
+}
+
+.detailInfo {
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.infoBlock {
+    display: flex;
+    gap: 5px;
+    height: 30px;
+    width: 100%;
+    align-items: center;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #F7F7F7;
+    width: 100%;
+}
+
+.nameInfoRow {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.detailInfoRow {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: black;
+}
+
+
+.profilePicture {
+    border-radius: 50%;
+}
+
