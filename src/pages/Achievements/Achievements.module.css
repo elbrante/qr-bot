@@ -1,0 +1,17 @@
+.achievements {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    gap: 40px;
+}
+
+.header {
+    width: 100%;
+    font-size: 18px;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

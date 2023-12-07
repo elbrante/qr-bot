@@ -1,0 +1,11 @@
+.blockAchiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listAhiv {
+    display: flex;
+    justify-content: space-between;
+}
+

@@ -1,0 +1,15 @@
+.imgAhive {
+    height: 45px;
+    width: 31px;
+}
+
+.achivka {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.numberAchive {
+    font-size: 14px;
+}
