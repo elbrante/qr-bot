@@ -14,7 +14,7 @@ const listAchive = [
 //unlock добавил, чтобы проверить на заблокированность ачивки
 
 export const Achievements = () => {
-    const [listAchives, setListAchive] = useState([])
+    const [listAchive, setListAchive] = useState([])
 
     useEffect(() => {
         getListAchive().then(res => {
@@ -32,7 +32,13 @@ export const Achievements = () => {
             <main className={cl.mainContent}>
                 {
                     listAchive.map((data, index) => {
-                        return <BlockAchive nameLevel={data.nameLevel} listAchive={data.listAchive} key={index}/>
+                        return <BlockAchive
+                            nameLevel={data.nameLevel}
+                            parties={data.parties}
+                            unLock={data.unLock}
+                            key={index}
+
+                        />
                     })
                 }
 

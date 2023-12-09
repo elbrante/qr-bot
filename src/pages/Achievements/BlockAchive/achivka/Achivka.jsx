@@ -1,16 +1,19 @@
 import cl from './Achivka.module.css'
 import level1 from "../../../../assets/unlock/UnLockLevel1.png";
 import lockLevel1 from '../../../../assets/lock/LockLevel1.png'
-export const Achivka = ({numberParty, unlock}) => {
+import {getSrcImg} from "../../../../api/api";
+import {user_id} from "../../../../api/dataUser";
+export const Achivka = ({numberParty, unlockAchieve}) => {
+
     return (
         <div className={cl.achivka}>
 
             {
-                unlock
+                unlockAchieve
                 ?
-                    <img src={level1} alt={''} className={cl.imgAhive}/>
+                    <img src={getSrcImg.unLock(user_id)} alt={''} className={cl.imgAhive}/>
                     :
-                    <img src={lockLevel1} alt={''} className={cl.imgAhive}/>
+                    <img src={getSrcImg.lock(user_id)} alt={''} className={cl.imgAhive}/>
             }
 
             <span className={cl.numberAchive}> {numberParty} вечеринка</span>

@@ -9,3 +9,14 @@
     justify-content: space-between;
 }
 
+.unLock {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(87, 169, 241, 1);
+}
+
+.lock {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(118, 118, 118, 1)
+}
