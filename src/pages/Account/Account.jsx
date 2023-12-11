@@ -1,7 +1,5 @@
 import React, {useRef} from 'react';
 import cl from './Account.module.css'
-
-
 import {useTelegram} from '../../hooks/useTelegram';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
@@ -16,7 +14,7 @@ export const Account = () => {
     const [phoneNum, setPhoneNum] = useState('');
     const [bonuses, setBonuses] = useState(500);
 
-    const backend_url = "https://thx-api-server.ru"
+    const backend_url = "https://thx-api-server.ru/bazzar"
 
     useEffect(() => {
 
@@ -101,7 +99,7 @@ export const Account = () => {
 
     ////////////
     //Тут код, который связан с QR-кодом
-    const [idUser, setIdUser] = useState('12341234');
+    const [idUser, setIdUser] = useState(user?.id);
     const [visibleQR, setVisibleQR] = useState(false)
     const switchVisible = () => {setVisibleQR(!visibleQR)}
     const canvasRef = useRef();
