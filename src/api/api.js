@@ -1,12 +1,13 @@
 import axios, * as others from 'axios';
-import {user_id} from "./dataUser";
+
 
 axios.defaults.baseURL = 'https://thx-api-server.ru/qrbot'
 const urlAddressForGetImg = 'https://thx-api-server.ru/qrbot/getImage/'
 
 export const getListAchive = () => {
-    return axios.get(`/getListAchive/${user_id}`)
-
+    const tg = window.Telegram.WebApp;
+    const user = tg.initDataUnsafe?.user;
+    return axios.get(`/getListAchive/${user?.id}`)
 }
 
 export const getSrcImg = {

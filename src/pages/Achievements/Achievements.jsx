@@ -5,12 +5,6 @@ import {useEffect, useState} from "react";
 import {getListAchive} from "../../api/api";
 
 
-const listAchive = [
-    {nameLevel: 'Любитель', listAchive: [{numberParty: 1, unlock: true}, {numberParty: 2, unlock: true}, {numberParty: 3, unlock: true}]},
-    {nameLevel: 'Знаток', listAchive: [{numberParty: 1, unlock: true}, {numberParty: 2, unlock: true}, {numberParty: 3, unlock: true}]},
-    {nameLevel: 'Знаток', listAchive: [{numberParty: 1, unlock: true}, {numberParty: 2, unlock: true}, {numberParty: 3, unlock: false}]},
-]
-
 //unlock добавил, чтобы проверить на заблокированность ачивки
 
 export const Achievements = () => {

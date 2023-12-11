@@ -22,6 +22,7 @@ export const BlockAchive = ({nameLevel, parties, unLock}) => {
                             return <Achivka
                                 numberParty={data.numberParty}
                                 unlockAchieve={data.unlockAchieve}
+                                imgID={data.id}
                                 key={index}
                             />
                         })

@@ -14,17 +14,13 @@ export const Account = () => {
     const [phoneNum, setPhoneNum] = useState('');
     const [bonuses, setBonuses] = useState(500);
 
-    const backend_url = "https://thx-api-server.ru/bazzar"
+    const backend_url = "https://thx-api-server.ru/qrbot"
 
     useEffect(() => {
 
-        const userid = user?.id;
+        const userId = user?.id || 0;
 
-        const userId = {
-            tg_id: userid?.toString()
-        };
-
-        axios.post(`${backend_url}/phone_number`, userId)
+        axios.get(`${backend_url}/phone_number/${userId.toString()}`)
             .then(response => {
                 console.log(response.data);
 
@@ -42,13 +38,10 @@ export const Account = () => {
 
     useEffect(() => {
 
-        const userid = user?.id;
+        const userId = user?.id || 0;
 
-        const userId = {
-            tg_id: userid?.toString()
-        };
 
-        axios.post(`${backend_url}/bonuses`, userId)
+        axios.get(`${backend_url}/bonuses/${userId.toString()}`)
             .then(response => {
                 console.log(response.data);
 
@@ -102,14 +95,14 @@ export const Account = () => {
     const [idUser, setIdUser] = useState(user?.id);
     const [visibleQR, setVisibleQR] = useState(false)
     const switchVisible = () => {setVisibleQR(!visibleQR)}
-    const canvasRef = useRef();
+    const canvasRef = useRef(null);
     useEffect(() => {
 
-        QRCode.toCanvas(
-            canvasRef.current,
-            idUser,
-            (error) => error && console.error(error)
-        );
+        const url = "https://thx-api-server.ru/qrbot/increase_parties/" + String(idUser)
+
+        QRCode.toCanvas(canvasRef.current, url, {width: 200}, function (error) {
+            if (error) console.error(error)
+        })
     }, [idUser]);
     ///////////
 
@@ -128,12 +121,13 @@ export const Account = () => {
             {/*Тут код, который связан с QR-кодом*/}
 
             <ButtonShowQR onClick={switchVisible}>
-                Показать QR-код
+                Показать QR
             </ButtonShowQR>
             <canvas ref={canvasRef} className={classNames({
                 [cl.visibleQrOn]: visibleQR,
                 [cl.visibleQrOff]: !visibleQR,
             })}/>
+
 
             {/*Тут код, который связан с QR-кодом*/}
 
